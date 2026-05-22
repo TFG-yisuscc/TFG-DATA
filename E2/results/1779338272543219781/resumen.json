@@ -1,0 +1,30 @@
+{
+    "annotations": {
+        "accelerator": false,
+        "fan": true,
+        "model_info": {
+            "architecture": "mistral3",
+            "bits_per_weight": 5.009084959591045,
+            "embedding_length": 3072,
+            "max_context": 262144,
+            "n_heads": 32,
+            "n_kv_heads": 8,
+            "n_layers": 26,
+            "n_params": 3429006336,
+            "quantization": "Q4_K_M"
+        },
+        "other": "E2"
+    },
+    "batch_size": 512,
+    "context_size": 2048,
+    "hardware_period": 0.25,
+    "inference_engine": "LLAMA",
+    "model_path_or_name": "/home/user1/E0/Ministral/Q4_K_M/Ministral-3-3B-Instruct-2512-Q4_K_M.gguf",
+    "num_prompts": 15,
+    "og_config_json": "{\"anotations\":{\"accelerator\":false,\"fan\":true,\"other\":\"E2\"},\"batch_size\":512,\"context_size\":2048,\"hailo_server_host\":\"localhost\",\"hailo_server_port\":8000,\"hardware_period\":0.25,\"inference_engine\":\"LLAMA\",\"model_path_or_name\":\"/home/user1/E0/Ministral/Q4_K_M/Ministral-3-3B-Instruct-2512-Q4_K_M.gguf\",\"num_prompts\":15,\"ollama_url\":\"http://localhost:11434\",\"seed\":42,\"temperature\":0.0,\"test_type\":\"TYPE_1\"}",
+    "seed": 42,
+    "temperature": 0.0,
+    "test_type": "TYPE_1",
+    "timestamp_run_end": 1779340523348970827,
+    "timestamp_run_start": 1779338272543219781
+}
