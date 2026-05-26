@@ -1,0 +1,30 @@
+{
+    "annotations": {
+        "accelerator": false,
+        "fan": true,
+        "model_info": {
+            "architecture": "llama",
+            "bits_per_weight": 4.472151352898265,
+            "embedding_length": 2048,
+            "max_context": 131072,
+            "n_heads": 32,
+            "n_kv_heads": 8,
+            "n_layers": 16,
+            "n_params": 1235814432,
+            "quantization": "Q3_K_M"
+        },
+        "other": "E1"
+    },
+    "batch_size": 512,
+    "context_size": 4096,
+    "hardware_period": 0.25,
+    "inference_engine": "LLAMA",
+    "model_path_or_name": "/home/user1/quantized/Llama3.2_1B/Q3_K_M/Llama-3.2-1B-Instruct-Q3_K_M.gguf",
+    "num_prompts": 15,
+    "og_config_json": "{\"anotations\":{\"accelerator\":false,\"fan\":true,\"other\":\"E1\"},\"batch_size\":512,\"context_size\":4096,\"hailo_server_host\":\"localhost\",\"hailo_server_port\":8000,\"hardware_period\":0.25,\"inference_engine\":\"LLAMA\",\"model_path_or_name\":\"/home/user1/quantized/Llama3.2_1B/Q3_K_M/Llama-3.2-1B-Instruct-Q3_K_M.gguf\",\"num_prompts\":15,\"ollama_url\":\"http://localhost:11434\",\"seed\":42,\"temperature\":0.0,\"test_type\":\"TYPE_1\"}",
+    "seed": 42,
+    "temperature": 0.0,
+    "test_type": "TYPE_1",
+    "timestamp_run_end": 1779701495567863646,
+    "timestamp_run_start": 1779697187093039575
+}
