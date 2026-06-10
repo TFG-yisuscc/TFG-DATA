@@ -1,0 +1,30 @@
+{
+    "annotations": {
+        "accelerator": false,
+        "fan": true,
+        "model_info": {
+            "architecture": "gemma3n",
+            "bits_per_weight": 5.9377502878538895,
+            "embedding_length": 2048,
+            "max_context": 32768,
+            "n_heads": 8,
+            "n_kv_heads": 2,
+            "n_layers": 30,
+            "n_params": 4458122848,
+            "quantization": "Q4_K_M"
+        },
+        "other": "E2"
+    },
+    "batch_size": 512,
+    "context_size": 1024,
+    "hardware_period": 0.25,
+    "inference_engine": "LLAMA",
+    "model_path_or_name": "/home/user1/E0/Gemma/Q4_K_M/gemma-4.5B-3n-E2B-it-Q4_K_M.gguf",
+    "num_prompts": 15,
+    "og_config_json": "{\"anotations\":{\"accelerator\":false,\"fan\":true,\"other\":\"E2\"},\"batch_size\":512,\"context_size\":1024,\"hailo_server_host\":\"localhost\",\"hailo_server_port\":8000,\"hardware_period\":0.25,\"inference_engine\":\"LLAMA\",\"model_path_or_name\":\"/home/user1/E0/Gemma/Q4_K_M/gemma-4.5B-3n-E2B-it-Q4_K_M.gguf\",\"num_prompts\":15,\"ollama_url\":\"http://localhost:11434\",\"seed\":42,\"temperature\":0.0,\"test_type\":\"TYPE_1\"}",
+    "seed": 42,
+    "temperature": 0.0,
+    "test_type": "TYPE_1",
+    "timestamp_run_end": 1780387238523889344,
+    "timestamp_run_start": 1780385704006217251
+}
