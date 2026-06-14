@@ -6,19 +6,20 @@ Repositorio de datos de los experimentos de inferencia con modelos de lenguaje c
 
 ```
 TFG-DATA/
-├── E0-FAN/      # Experimento 0 — línea base con ventilador activo
-├── E0-NOFAN/    # Experimento 0 — sin ventilador (datos de ollama no utilizados)
-├── E1/          # Experimento 1 — variación de cuantización
-├── E2/          # Experimento 2 — variación de tamaño de contexto
-├── E3/          # Experimento 3 — variación de batch size
-└── E5/          # Experimento 5 — acelerador Hailo-8L
+├── E0-FAN/       # Experimento 0 — línea base con ventilador activo
+├── E0-NOFAN/     # Experimento 0 — sin ventilador (datos de ollama no utilizados)
+├── E1/           # Experimento 1 — variación de cuantización
+├── E2/           # Experimento 2 — variación de tamaño de contexto
+├── E3/           # Experimento 3 — variación de batch size
+├── E5/           # Experimento 5 — acelerador Hailo-10h(Ai HAt 2+)
+└── Perplejidad/  # Medición de perplejidad sobre WikiText-2
 ```
 
 > **Nota sobre E4:** Los datos de E4 se generaron en la misma sesión de medición que E0-FAN. Por limitaciones de almacenamiento no se han duplicado como carpeta independiente en este repositorio.
 
 ---
 
-### Estructura interna de cada experimento
+### Estructura interna de cada experimento (E0–E5)
 
 Cada experimento contiene subdirectorios nombrados con el timestamp de inicio del run (nanosegundos Unix). Dentro de cada run hay tres ficheros:
 
@@ -27,6 +28,16 @@ Cada experimento contiene subdirectorios nombrados con el timestamp de inicio de
 ├── <metric_id>_hw_metrics_<modelo>_<test>.jsonl      # Métricas hardware (CPU, RAM, temperatura...)
 ├── <metric_id>_prompt_metrics_<modelo>_<test>.jsonl  # Métricas de inferencia (tokens/s, latencia...)
 └── resumen.json                                       # Configuración y metadatos del run
+```
+
+### Estructura interna de Perplejidad
+
+Cada subdirectorio corresponde a una medición individual (un modelo + cuantización), nombrado con el timestamp de inicio en nanosegundos Unix. Dentro de cada run hay dos ficheros:
+
+```
+<run_id>/
+├── <run_id>_perplexity_<modelo>-<cuantización>.jsonl  # Perplejidad por chunk (token negativo log-likelihood)
+└── resumen.json                                        # Configuración, metadatos y resultado final (PPL)
 ```
 
 ---
