@@ -6,13 +6,14 @@ Repositorio de datos de los experimentos de inferencia con modelos de lenguaje c
 
 ```
 TFG-DATA/
-├── E0-FAN/       # Experimento 0 — línea base con ventilador activo
-├── E0-NOFAN/     # Experimento 0 — sin ventilador (datos de ollama no utilizados)
-├── E1/           # Experimento 1 — variación de cuantización
-├── E2/           # Experimento 2 — variación de tamaño de contexto
-├── E3/           # Experimento 3 — variación de batch size
-├── E5/           # Experimento 5 — acelerador Hailo-10h(Ai HAt 2+)
-└── Perplejidad/  # Medición de perplejidad sobre WikiText-2
+├── E0-FAN/          # Experimento 0 — línea base con ventilador activo
+├── E0-NOFAN/        # Experimento 0 — sin ventilador (datos de ollama no utilizados)
+├── E1/              # Experimento 1 — variación de cuantización
+├── E2/              # Experimento 2 — variación de tamaño de contexto
+├── E3/              # Experimento 3 — variación de batch size
+├── E5/              # Experimento 5 — acelerador Hailo-10h(Ai HAt 2+)
+├── Perplejidad/     # Medición de perplejidad sobre WikiText-2
+└── deepseek_type2/  # Traza detallada de RAM y CPU durante inferencia con DeepSeek (TYPE_2)
 ```
 
 > **Nota sobre E4:** Los datos de E4 se generaron en la misma sesión de medición que E0-FAN. Por limitaciones de almacenamiento no se han duplicado como carpeta independiente en este repositorio.
@@ -126,3 +127,20 @@ Los runs con Ollama se realizaron como prueba inicial sin ventilador y **no se u
 | Condición térmica | Active Cooler instalado y activo |
 
 Los runs ejecutados con llama.cpp en este experimento se realizaron con el HAT del acelerador Hailo-10h físicamente colocado en la Raspberry Pi, pero **sin hacer uso de él** (acelerador desactivado). Esto permite una comparación directa con los runs de HAILO_OLLAMA bajo las mismas condiciones físicas. En el resto de experimentos (E0-FAN, E0-NOFAN, E1, E2, E3) el HAT no estaba colocado.
+
+---
+
+### deepseek_type2 — Traza de RAM y CPU durante inferencia
+
+| Parámetro | Valor |
+|---|---|
+| Motor de inferencia | OLLAMA |
+| Modelo | DeepSeek-R1-Distill-Qwen-1.5B (Q4_K_M) |
+| Cuantización | Q4_K_M |
+| Contexto | 4096 tokens |
+| Batch size | 512 |
+| `test_type` | TYPE_2 |
+| `hardware_period` | 0.25 s (muestreo cada 250 ms) |
+| Condición térmica | Sin ventilador, sin acelerador |
+
+Datos de tipo TYPE_2 orientados a obtener una traza temporal de alta frecuencia del uso de RAM y CPU durante la inferencia. El periodo de muestreo de 0.25 s permite observar la evolución de la ocupación de memoria y la carga de los núcleos a lo largo de cada prompt.
