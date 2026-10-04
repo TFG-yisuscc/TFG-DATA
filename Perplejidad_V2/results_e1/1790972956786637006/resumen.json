@@ -1,0 +1,74 @@
+{
+  "annotations": {
+    "batch": 4096,
+    "context": 4096,
+    "max_tokens_scored": 15000,
+    "model": "Deepseek-R1-Distill-Qwen-1.5B",
+    "nota": "batch_size=context_size (restriccion de PerplexitySystem)",
+    "quant": "Q3_K_M",
+    "serie": "E1"
+  },
+  "config": {
+    "annotations": {
+      "batch": 4096,
+      "context": 4096,
+      "max_tokens_scored": 15000,
+      "model": "Deepseek-R1-Distill-Qwen-1.5B",
+      "nota": "batch_size=context_size (restriccion de PerplexitySystem)",
+      "quant": "Q3_K_M",
+      "serie": "E1"
+    },
+    "batch_size": 4096,
+    "context_size": 4096,
+    "inference_engine": "LLAMA",
+    "max_tokens_scored": 15000,
+    "model_path": "/home/user1/quantized/Deepseek qwen/Q3_K_M/DeepSeek-R1-Distill-Qwen-1.5B-Q3_K_M.gguf",
+    "output_dir": "results_e1",
+    "seed": 42
+  },
+  "convention": "llama.cpp b9030 non-overlapping chunks of n_ctx, score positions [n_ctx/2, n_ctx-2]",
+  "corpus": {
+    "n_tokens_total": 299079,
+    "path": "",
+    "sha256": "173c87a53759e0201f33e0ccf978e510c2042d7f2cb78229d9a50d79b9e7dd08"
+  },
+  "duration_sec": 1437.9228106300002,
+  "engine": "LLAMA",
+  "metric": "wikitext2_teacher_forcing_perplexity",
+  "model": {
+    "architecture": "qwen2",
+    "embedding_length": 1536,
+    "max_context": 131072,
+    "n_layers": 28,
+    "n_params": 1777088000,
+    "n_vocab": 151936,
+    "path": "/home/user1/quantized/Deepseek qwen/Q3_K_M/DeepSeek-R1-Distill-Qwen-1.5B-Q3_K_M.gguf",
+    "quantization": "Q3_K - Medium"
+  },
+  "ollama_meta": null,
+  "result": {
+    "add_bos": true,
+    "coverage_pct": 100.0,
+    "n_chunks": 73,
+    "n_tokens_missing": 0,
+    "n_tokens_scored": 15000,
+    "nll_mean": 3.4487290390655345,
+    "per_chunk_ppl": [
+      38.13730996449011,
+      40.77688331952476,
+      30.810278712394883,
+      29.703283640878173,
+      31.03931102618071,
+      30.86094576269895,
+      31.34802952401316,
+      31.46038197187661
+    ],
+    "perplexity": 31.46038197187661,
+    "ppl_stderr": 0.9449443237334495
+  },
+  "run_id": "1790972956786637006",
+  "ts_end_iso": "2026-10-02T20:53:14.709447636Z",
+  "ts_end_ns": 1790974394709447636,
+  "ts_start_iso": "2026-10-02T20:29:16.786637006Z",
+  "ts_start_ns": 1790972956786637006
+}

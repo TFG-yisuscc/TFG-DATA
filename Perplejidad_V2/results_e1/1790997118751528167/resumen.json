@@ -1,0 +1,74 @@
+{
+  "annotations": {
+    "batch": 4096,
+    "context": 4096,
+    "max_tokens_scored": 15000,
+    "model": "Granite-4.0-h-micro",
+    "nota": "batch_size=context_size (restriccion de PerplexitySystem)",
+    "quant": "Q3_K_M",
+    "serie": "E1"
+  },
+  "config": {
+    "annotations": {
+      "batch": 4096,
+      "context": 4096,
+      "max_tokens_scored": 15000,
+      "model": "Granite-4.0-h-micro",
+      "nota": "batch_size=context_size (restriccion de PerplexitySystem)",
+      "quant": "Q3_K_M",
+      "serie": "E1"
+    },
+    "batch_size": 4096,
+    "context_size": 4096,
+    "inference_engine": "LLAMA",
+    "max_tokens_scored": 15000,
+    "model_path": "/home/user1/quantized/Granite/Q3_K_M/granite-4.0-h-micro-Q3_K_M.gguf",
+    "output_dir": "results_e1",
+    "seed": 42
+  },
+  "convention": "llama.cpp b9030 non-overlapping chunks of n_ctx, score positions [n_ctx/2, n_ctx-2]",
+  "corpus": {
+    "n_tokens_total": 289305,
+    "path": "",
+    "sha256": "173c87a53759e0201f33e0ccf978e510c2042d7f2cb78229d9a50d79b9e7dd08"
+  },
+  "duration_sec": 3308.717406558,
+  "engine": "LLAMA",
+  "metric": "wikitext2_teacher_forcing_perplexity",
+  "model": {
+    "architecture": "granitehybrid",
+    "embedding_length": 2048,
+    "max_context": 1048576,
+    "n_layers": 40,
+    "n_params": 3191396096,
+    "n_vocab": 100352,
+    "path": "/home/user1/quantized/Granite/Q3_K_M/granite-4.0-h-micro-Q3_K_M.gguf",
+    "quantization": "Q3_K - Medium"
+  },
+  "ollama_meta": null,
+  "result": {
+    "add_bos": false,
+    "coverage_pct": 100.0,
+    "n_chunks": 70,
+    "n_tokens_missing": 0,
+    "n_tokens_scored": 15000,
+    "nll_mean": 2.3175335267693042,
+    "per_chunk_ppl": [
+      12.445955066979398,
+      11.477460315804606,
+      9.344874687486447,
+      9.189164536615493,
+      9.272922608517524,
+      9.73822538066949,
+      10.033257192305896,
+      10.15060720416899
+    ],
+    "perplexity": 10.15060720416899,
+    "ppl_stderr": 0.23682502961765314
+  },
+  "run_id": "1790997118751528167",
+  "ts_end_iso": "2026-10-03T04:07:07.468934725Z",
+  "ts_end_ns": 1791000427468934725,
+  "ts_start_iso": "2026-10-03T03:11:58.751528167Z",
+  "ts_start_ns": 1790997118751528167
+}

@@ -1,0 +1,81 @@
+{
+  "annotations": {
+    "batch": 2048,
+    "context": 2048,
+    "max_tokens_scored": 15000,
+    "model": "Gemma-4.5B-3n-E2B",
+    "nota": "batch_size=context_size (restriccion de PerplexitySystem)",
+    "quant": "Q4_K_M",
+    "serie": "E2"
+  },
+  "config": {
+    "annotations": {
+      "batch": 2048,
+      "context": 2048,
+      "max_tokens_scored": 15000,
+      "model": "Gemma-4.5B-3n-E2B",
+      "nota": "batch_size=context_size (restriccion de PerplexitySystem)",
+      "quant": "Q4_K_M",
+      "serie": "E2"
+    },
+    "batch_size": 2048,
+    "context_size": 2048,
+    "inference_engine": "LLAMA",
+    "max_tokens_scored": 15000,
+    "model_path": "/home/user1/quantized/gemma/Q4_K_M/gemma-4.5B-3n-E2B-it-Q4_K_M.gguf",
+    "output_dir": "results_e2",
+    "seed": 42
+  },
+  "convention": "llama.cpp b9030 non-overlapping chunks of n_ctx, score positions [n_ctx/2, n_ctx-2]",
+  "corpus": {
+    "n_tokens_total": 295216,
+    "path": "",
+    "sha256": "173c87a53759e0201f33e0ccf978e510c2042d7f2cb78229d9a50d79b9e7dd08"
+  },
+  "duration_sec": 1917.0372490650002,
+  "engine": "LLAMA",
+  "metric": "wikitext2_teacher_forcing_perplexity",
+  "model": {
+    "architecture": "gemma3n",
+    "embedding_length": 2048,
+    "max_context": 32768,
+    "n_layers": 30,
+    "n_params": 4458122848,
+    "n_vocab": 262400,
+    "path": "/home/user1/quantized/gemma/Q4_K_M/gemma-4.5B-3n-E2B-it-Q4_K_M.gguf",
+    "quantization": "Q4_K - Medium"
+  },
+  "ollama_meta": null,
+  "result": {
+    "add_bos": true,
+    "coverage_pct": 100.0,
+    "n_chunks": 144,
+    "n_tokens_missing": 0,
+    "n_tokens_scored": 15000,
+    "nll_mean": 3.3865277140701364,
+    "per_chunk_ppl": [
+      26.062264920456098,
+      35.46882548576379,
+      37.38858505038635,
+      35.8227027787863,
+      35.79584195096149,
+      28.629148905970663,
+      24.816418360453007,
+      24.546936052649844,
+      26.03838556407799,
+      26.95614088295122,
+      27.316056047580737,
+      28.68154023798875,
+      28.667133529783985,
+      29.248219015127276,
+      29.56312223266747
+    ],
+    "perplexity": 29.56312223266747,
+    "ppl_stderr": 1.0019526207473146
+  },
+  "run_id": "1791058517113653790",
+  "ts_end_iso": "2026-10-03T20:47:14.150902855Z",
+  "ts_end_ns": 1791060434150902855,
+  "ts_start_iso": "2026-10-03T20:15:17.113653790Z",
+  "ts_start_ns": 1791058517113653790
+}

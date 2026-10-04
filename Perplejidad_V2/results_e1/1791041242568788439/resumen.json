@@ -1,0 +1,74 @@
+{
+  "annotations": {
+    "batch": 4096,
+    "context": 4096,
+    "max_tokens_scored": 15000,
+    "model": "Ministral-3-3B",
+    "nota": "batch_size=context_size (restriccion de PerplexitySystem)",
+    "quant": "Q4_K_M",
+    "serie": "E1"
+  },
+  "config": {
+    "annotations": {
+      "batch": 4096,
+      "context": 4096,
+      "max_tokens_scored": 15000,
+      "model": "Ministral-3-3B",
+      "nota": "batch_size=context_size (restriccion de PerplexitySystem)",
+      "quant": "Q4_K_M",
+      "serie": "E1"
+    },
+    "batch_size": 4096,
+    "context_size": 4096,
+    "inference_engine": "LLAMA",
+    "max_tokens_scored": 15000,
+    "model_path": "/home/user1/quantized/Ministral/Q4_K_M/Ministral-3-3B-Instruct-2512-Q4_K_M.gguf",
+    "output_dir": "results_e1",
+    "seed": 42
+  },
+  "convention": "llama.cpp b9030 non-overlapping chunks of n_ctx, score positions [n_ctx/2, n_ctx-2]",
+  "corpus": {
+    "n_tokens_total": 304411,
+    "path": "",
+    "sha256": "173c87a53759e0201f33e0ccf978e510c2042d7f2cb78229d9a50d79b9e7dd08"
+  },
+  "duration_sec": 1894.980288014,
+  "engine": "LLAMA",
+  "metric": "wikitext2_teacher_forcing_perplexity",
+  "model": {
+    "architecture": "mistral3",
+    "embedding_length": 3072,
+    "max_context": 262144,
+    "n_layers": 26,
+    "n_params": 3429006336,
+    "n_vocab": 131072,
+    "path": "/home/user1/quantized/Ministral/Q4_K_M/Ministral-3-3B-Instruct-2512-Q4_K_M.gguf",
+    "quantization": "Q4_K - Medium"
+  },
+  "ollama_meta": null,
+  "result": {
+    "add_bos": true,
+    "coverage_pct": 100.0,
+    "n_chunks": 74,
+    "n_tokens_missing": 0,
+    "n_tokens_scored": 15000,
+    "nll_mean": 1.9321608813034765,
+    "per_chunk_ppl": [
+      8.850180118806456,
+      8.719382989251837,
+      7.338538892676383,
+      6.784096629610565,
+      6.920146446130045,
+      6.773939518498182,
+      6.903043131652268,
+      6.904413752011745
+    ],
+    "perplexity": 6.904413752011745,
+    "ppl_stderr": 0.12998598644086132
+  },
+  "run_id": "1791041242568788439",
+  "ts_end_iso": "2026-10-03T15:58:57.549076453Z",
+  "ts_end_ns": 1791043137549076453,
+  "ts_start_iso": "2026-10-03T15:27:22.568788439Z",
+  "ts_start_ns": 1791041242568788439
+}

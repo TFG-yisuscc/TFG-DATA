@@ -1,0 +1,81 @@
+{
+  "annotations": {
+    "batch": 2048,
+    "context": 2048,
+    "max_tokens_scored": 15000,
+    "model": "Granite-4.0-h-micro",
+    "nota": "batch_size=context_size (restriccion de PerplexitySystem)",
+    "quant": "Q4_K_M",
+    "serie": "E2"
+  },
+  "config": {
+    "annotations": {
+      "batch": 2048,
+      "context": 2048,
+      "max_tokens_scored": 15000,
+      "model": "Granite-4.0-h-micro",
+      "nota": "batch_size=context_size (restriccion de PerplexitySystem)",
+      "quant": "Q4_K_M",
+      "serie": "E2"
+    },
+    "batch_size": 2048,
+    "context_size": 2048,
+    "inference_engine": "LLAMA",
+    "max_tokens_scored": 15000,
+    "model_path": "/home/user1/quantized/Granite/Q4_K_M/granite-4.0-h-micro-Q4_K_M.gguf",
+    "output_dir": "results_e2",
+    "seed": 42
+  },
+  "convention": "llama.cpp b9030 non-overlapping chunks of n_ctx, score positions [n_ctx/2, n_ctx-2]",
+  "corpus": {
+    "n_tokens_total": 289305,
+    "path": "",
+    "sha256": "173c87a53759e0201f33e0ccf978e510c2042d7f2cb78229d9a50d79b9e7dd08"
+  },
+  "duration_sec": 1571.4195941100002,
+  "engine": "LLAMA",
+  "metric": "wikitext2_teacher_forcing_perplexity",
+  "model": {
+    "architecture": "granitehybrid",
+    "embedding_length": 2048,
+    "max_context": 1048576,
+    "n_layers": 40,
+    "n_params": 3191396096,
+    "n_vocab": 100352,
+    "path": "/home/user1/quantized/Granite/Q4_K_M/granite-4.0-h-micro-Q4_K_M.gguf",
+    "quantization": "Q4_K - Medium"
+  },
+  "ollama_meta": null,
+  "result": {
+    "add_bos": false,
+    "coverage_pct": 100.0,
+    "n_chunks": 141,
+    "n_tokens_missing": 0,
+    "n_tokens_scored": 15000,
+    "nll_mean": 2.1556341331553908,
+    "per_chunk_ppl": [
+      7.255497330494556,
+      9.538228525116763,
+      10.118496481209814,
+      9.512194765175758,
+      9.409577101974605,
+      8.282675547654755,
+      8.181834092923792,
+      8.048106677862743,
+      8.409110259899752,
+      8.441672251129326,
+      8.31295438351353,
+      8.350899098175194,
+      8.478729034739466,
+      8.60824993319148,
+      8.633363145303612
+    ],
+    "perplexity": 8.633363145303612,
+    "ppl_stderr": 0.19569104788440492
+  },
+  "run_id": "1791069461431200105",
+  "ts_end_iso": "2026-10-03T23:43:52.850794215Z",
+  "ts_end_ns": 1791071032850794215,
+  "ts_start_iso": "2026-10-03T23:17:41.431200105Z",
+  "ts_start_ns": 1791069461431200105
+}
