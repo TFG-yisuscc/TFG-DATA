@@ -12,7 +12,10 @@ TFG-DATA/
 ├── E2/              # Experimento 2 — variación de tamaño de contexto
 ├── E3/              # Experimento 3 — variación de batch size
 ├── E5/              # Experimento 5 — acelerador Hailo-10h(Ai HAt 2+)
-├── Perplejidad/     # Medición de perplejidad sobre WikiText-2
+├── Perplejidad_V2/  # Perplejidad sobre WikiText-2 para las configuraciones de E1 y E2
+│   ├── results_e1/  #   E1 — variación de cuantización (31 runs)
+│   └── results_e2/  #   E2 — variación de tamaño de contexto (30 runs)
+├── .Perplejidad_old/# Antiguo cálculo de la perplejidad (sustituido por Perplejidad_V2)
 └── deepseek_type2/  # Traza detallada de RAM y CPU durante inferencia con DeepSeek (TYPE_2)
 ```
 
@@ -31,15 +34,17 @@ Cada experimento contiene subdirectorios nombrados con el timestamp de inicio de
 └── resumen.json                                       # Configuración y metadatos del run
 ```
 
-### Estructura interna de Perplejidad
+### Estructura interna de Perplejidad_V2
 
-Cada subdirectorio corresponde a una medición individual (un modelo + cuantización), nombrado con el timestamp de inicio en nanosegundos Unix. Dentro de cada run hay dos ficheros:
+`Perplejidad_V2/` contiene las mediciones de perplejidad (WikiText-2, teacher forcing) de las configuraciones de E1 (`results_e1/`) y E2 (`results_e2/`). Cada subdirectorio corresponde a una medición individual (un modelo + cuantización + tamaño de contexto), nombrado con el timestamp de inicio en nanosegundos Unix. Dentro de cada run hay dos ficheros:
 
 ```
 <run_id>/
 ├── <run_id>_perplexity_<modelo>-<cuantización>.jsonl  # Perplejidad por chunk (token negativo log-likelihood)
 └── resumen.json                                        # Configuración, metadatos y resultado final (PPL)
 ```
+
+Convención de medición (`resumen.json`): chunks no solapados de `n_ctx` al estilo llama.cpp, puntuando las posiciones `[n_ctx/2, n_ctx-2]`, hasta 15000 tokens puntuados, `batch_size = context_size` (restricción de `PerplexitySystem`), semilla 42. La carpeta `.Perplejidad_old/` contiene el antiguo cálculo de la perplejidad (método anterior), que ya no se usa; `Perplejidad_V2/` lo sustituye.
 
 ---
 
@@ -86,6 +91,8 @@ Los runs con Ollama se realizaron como prueba inicial sin ventilador y **no se u
 | Runs | 30 (6 modelos × 5 cuantizaciones) |
 | Condición térmica | Active Cooler instalado y activo |
 
+**Perplejidad (`Perplejidad_V2/results_e1/`):** 31 runs (6 modelos × 5 cuantizaciones + 1 run adicional en BF16), contexto y batch fijos en 4096.
+
 ---
 
 ### E2 — Variación de tamaño de contexto
@@ -98,6 +105,8 @@ Los runs con Ollama se realizaron como prueba inicial sin ventilador y **no se u
 | Contextos | 512, 1024, 2048, 4096, 5120 tokens |
 | Runs | 30 (6 modelos × 5 tamaños de contexto) |
 | Condición térmica | Active Cooler instalado y activo |
+
+**Perplejidad (`Perplejidad_V2/results_e2/`):** 30 runs (6 modelos × 5 tamaños de contexto), con `batch_size = context_size`.
 
 ---
 

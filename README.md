@@ -16,7 +16,10 @@ TFG-DATA/
 ├── E2/              # Experiment 2 — context size variation
 ├── E3/              # Experiment 3 — batch size variation
 ├── E5/              # Experiment 5 — Hailo-10h accelerator (AI HAT 2+)
-├── Perplejidad/     # Perplexity measurement on WikiText-2
+├── Perplejidad_V2/  # Perplexity on WikiText-2 for the E1 and E2 configurations
+│   ├── results_e1/  #   E1 — quantization variation (31 runs)
+│   └── results_e2/  #   E2 — context size variation (30 runs)
+├── .Perplejidad_old/# Old perplexity calculation (superseded by Perplejidad_V2)
 └── deepseek_type2/  # Detailed RAM and CPU trace during inference with DeepSeek (TYPE_2)
 ```
 
@@ -35,15 +38,17 @@ Each experiment contains subdirectories named with the run start timestamp (Unix
 └── resumen.json                                      # Run configuration and metadata
 ```
 
-### Internal structure of Perplejidad
+### Internal structure of Perplejidad_V2
 
-Each subdirectory corresponds to an individual measurement (one model + quantization), named with the run start timestamp in Unix nanoseconds. Inside each run there are two files:
+`Perplejidad_V2/` contains the perplexity measurements (WikiText-2, teacher forcing) for the configurations of E1 (`results_e1/`) and E2 (`results_e2/`). Each subdirectory corresponds to an individual measurement (one model + quantization + context size), named with the run start timestamp in Unix nanoseconds. Inside each run there are two files:
 
 ```
 <run_id>/
 ├── <run_id>_perplexity_<model>-<quantization>.jsonl  # Perplexity by chunk (negative token log-likelihood)
 └── resumen.json                                       # Configuration, metadata, and final result (PPL)
 ```
+
+Measurement convention (`resumen.json`): llama.cpp non-overlapping chunks of `n_ctx`, scoring positions `[n_ctx/2, n_ctx-2]`, up to 15000 scored tokens, `batch_size = context_size` (a `PerplexitySystem` restriction), seed 42. The `.Perplejidad_old/` folder contains the old perplexity calculation (previous method), which is no longer used; `Perplejidad_V2/` replaces it.
 
 ---
 
@@ -90,6 +95,8 @@ Runs with Ollama were performed as an initial no-fan test and were **not used** 
 | Runs | 30 (6 models × 5 quantizations) |
 | Thermal condition | Active Cooler installed and active |
 
+**Perplexity (`Perplejidad_V2/results_e1/`):** 31 runs (6 models × 5 quantizations + 1 additional BF16 run), context and batch fixed at 4096.
+
 ---
 
 ### E2 — Context size variation
@@ -102,6 +109,8 @@ Runs with Ollama were performed as an initial no-fan test and were **not used** 
 | Context sizes | 512, 1024, 2048, 4096, 5120 tokens |
 | Runs | 30 (6 models × 5 context sizes) |
 | Thermal condition | Active Cooler installed and active |
+
+**Perplexity (`Perplejidad_V2/results_e2/`):** 30 runs (6 models × 5 context sizes), with `batch_size = context_size`.
 
 ---
 
